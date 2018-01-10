@@ -1,9 +1,9 @@
 import numpy as np
 
 np.random.seed(123)
-a = np.random.randn(200, 200)
-b = np.random.randn(200, 200)
-c = np.zeros([200,200])
+a = np.random.randn(1000, 1000).astype('float32')
+b = np.random.randn(1000, 1000).astype('float32')
+c = np.zeros([1000,1000]).astype('float32')
 
 
 def multiply():
@@ -17,3 +17,18 @@ if __name__ == "__main__":
 
 
 print(c[100, 100])
+
+
+import tensorflow
+
+ta = tensorflow.constant(a)
+tb = tensorflow.constant(b)
+
+# Create a session object
+sess = tensorflow.Session()
+result = tensorflow.matmul(ta, tb)
+print (timeit.timeit("sess.run(result)", setup="import tensorflow; from __main__ import sess, ta, tb, result", number=1000))
+
+print(sess.run(result[100,100]))
+sess.close()
+
