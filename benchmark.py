@@ -13,7 +13,7 @@ def multiply():
 if __name__ == "__main__":
     import timeit
     setup = "from __main__ import multiply"
-    print(timeit.timeit("multiply()", setup=setup, number=100))
+    print(timeit.timeit("multiply()", setup=setup, number=1000))
 
 
 print(c[100, 100])
