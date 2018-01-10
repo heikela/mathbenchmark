@@ -20,6 +20,9 @@ print(c[100, 100])
 
 
 import tensorflow
+from tensorflow.python.client import device_lib
+
+print(device_lib.list_local_devices())
 
 ta = tensorflow.constant(a)
 tb = tensorflow.constant(b)
